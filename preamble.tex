@@ -1,0 +1,59 @@
+\documentclass{jsarticle}
+
+\usepackage{siunitx}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{lscape}
+\usepackage{amsmath}
+
+\renewcommand{\kanjifamilydefault}{\gtdefault}
+\renewcommand\Re{\operatorname{Re}}
+\renewcommand\Im{\operatorname{Im}}
+
+%\setlength{\topmargin}{-2cm}
+
+\setlength{\textheight}{254truemm}
+\setlength{\headheight}{0pt}
+\setlength{\headsep}{20truemm}
+\setlength{\footskip}{10truemm}
+\addtolength{\topmargin}{-1truein}
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\rhead{}
+\lhead{}
+\lfoot{}
+\rfoot{}
+\cfoot{p.\thepage{}/{}\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+
+\makeatletter
+
+	\renewcommand{\theequation}{% 式番号
+	\thesection.\arabic{equation}}
+	\@addtoreset{equation}{section}
+
+	\renewcommand{\thefigure}{% 図番号の付け方
+	\thesection.\arabic{figure}}
+	\@addtoreset{figure}{section}
+
+	\renewcommand{\thetable}{% 表番号の付け方
+	\thesection.\arabic{table}}
+	\@addtoreset{table}{section}
+
+	% 文中の参考文献記号変更
+	\renewcommand{\@cite}[1]{\textsuperscript{#1)}}
+
+	% 参考文献の記号変更
+	\renewcommand{\@biblabel}[1]{#1)}
+
+\makeatother
+
+\usepackage{caption}
+\captionsetup[figure]{format=plain, labelformat=simple, labelsep=space, font={sf,large}}
+\captionsetup[table]{format=plain, labelformat=simple, labelsep=space, font={sf,large}}
+
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{url}
+\usepackage{listings}

@@ -1,0 +1,108 @@
+\input{preamble.tex}
+\begin{document}
+
+\section{セクション}
+てすと
+\subsection{サブセクション}
+あいうえお
+\subsubsection{サブサブセクション}
+トレース結果を，表\ref{addtrace}に示す．
+
+\begin{table}[htb]
+\caption{ADD命令実行中の各種レジスタのトレース結果}
+\begin{center}
+\begin{tabular}
+{c|c|c|c|c|c|c|c|c|c}
+\hline
+演算 & 命令 & \multicolumn{2}{c|}{機械語} & レジスタ & P0 & P1 & P2 & P3 & P4  \\ \hline
+
+\multirow{15}{*}{2 + (-3)}&
+\multirow{5}{*}{LD ACC, (100h)}&
+\multirow{5}{*}{65} & \multirow{5}{*}{00} 
+		& PC	& 01 & 01 & 02 & 02 & 02 \\
+& & &	& FLAG	& 00 & 00 & 00 & 00 & 00 \\
+& & &	& ACC	& 00 & 00 & 00 & 00 & 02 \\
+& & &	& MAR	& 00 & 00 & 01 & 00 & 00 \\
+& & &	& IR	& 00 & 65 & 65 & 65 & 65 \\
+\cline{2-10}
+
+&
+\multirow{5}{*}{ADD ACC, (101h)}&
+\multirow{5}{*}{B5} & \multirow{5}{*}{01} 
+		& PC	& 03 & 03 & 04 & 04 & 04 \\
+& & &	& FLAG	& 00 & 00 & 00 & 00 & 02 \\
+& & &	& ACC	& 02 & 02 & 02 & 02 & FF \\
+& & &	& MAR	& 02 & 02 & 03 & 01 & 01 \\
+& & &	& IR	& 65 & B5 & B5 & B5 & B5 \\
+\cline{2-10}
+
+&
+\multirow{5}{*}{ST ACC, (102h)}&
+\multirow{5}{*}{75} & \multirow{5}{*}{02} 
+		& PC	& 05 & 05 & 06 & 06 & 06 \\
+& & &	& FLAG	& 02 & 02 & 02 & 02 & 02 \\
+& & &	& ACC	& FF & FF & FF & FF & FF \\
+& & &	& MAR	& 04 & 04 & 05 & 02 & 02 \\
+& & &	& IR	& B5 & 75 & 75 & 75 & 75 \\
+\hline
+
+\end{tabular}
+\end{center}
+\label{addtrace}
+\end{table}
+
+\clearpage
+\subsubsection{ADC命令実行中のフラグレジスタのトレース}
+トレース結果を，表\ref{adctrace}に示す．
+
+\begin{table}[htb]
+\caption{ADC命令実行中のフラグレジスタのトレース結果}
+\begin{center}
+\begin{tabular}
+{c|c|c|c|c|c|c|c|c|c|l}
+\hline
+演算 & 命令 & \multicolumn{2}{c|}{機械語} & レジスタ & P0 & P1 & P2 & P3 & P4 & フラグ  \\ \hline
+
+-127 + (-1)&
+\multirow{5}{*}{ADC ACC, (101h)}&
+\multirow{5}{*}{95} & \multirow{5}{*}{01} 
+		& \multirow{5}{*}{FLAG}	& 00 & 00 & 00 & 00 & 0A & CF, NF \\
+\cline{1-1} \cline{6-11}
+
+-127 + (-2) & & & & & 00 & 00 & 00 & 00 & 0C & CF, VF \\
+\cline{1-1} \cline{6-11}
+126 + (-126) & & & & & 00 & 00 & 00 & 00 & 09 & CF, ZF \\
+\cline{1-1} \cline{6-11}
+126 + 1 & & & & & 00 & 00 & 00 & 00 & 00 &  \\
+\cline{1-1} \cline{6-11}
+126 + 2 & & & & & 00 & 00 & 00 & 00 & 06 & VF, NF \\
+\hline
+
+\end{tabular}
+\end{center}
+\label{adctrace}
+\end{table}
+
+
+\section{報告事項}
+
+\begin{figure}[p]
+\centering
+\includegraphics[height=5cm]{sample/logo.png}
+\caption{hikaliumのロゴ}
+\label{logo}
+\end{figure}
+
+\input{sample/itemize.tex}
+\input{sample/tables.tex}
+
+\section{参考文献}
+\begingroup
+\renewcommand{\section}[2]{}
+\begin{thebibliography}{3}
+	\bibitem{textbook} example.com from Wikipedia
+\end{thebibliography}
+\endgroup
+
+
+\end{document}
