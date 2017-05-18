@@ -8,8 +8,15 @@
 
 \section{セクション}
 てすと
-\subsection{サブセクション}
-あいうえお
+\subsection{ソースコードの例}
+
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize, frame=single]
+let rec _fib t1 t2 n = 
+    if n < 1 then t1
+    else _fib t2 (t1+t2) (n-1)
+and fib n = _fib 0 1 n
+\end{lstlisting}
+
 \subsubsection{サブサブセクション}
 トレース結果を，表\ref{addtrace}に示す．
 
