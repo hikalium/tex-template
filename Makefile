@@ -12,4 +12,4 @@ default:
 	platex $*.tex
 
 %.pdf : %.dvi Makefile
-	dvipdfmx $*
+	dvipdfmx -f ipa-ex.map $*
