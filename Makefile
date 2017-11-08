@@ -2,7 +2,8 @@
 
 default:
 	make report.pdf
-	open report.pdf
+	open -a Skim -g report.pdf
+	#open report.pdf
 
 %.png : %.gnp Makefile
 	gnuplot -c $*.gnp
