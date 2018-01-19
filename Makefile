@@ -4,7 +4,8 @@ OUT_DIR = ./out
 
 default:
 	make report.pdf
-	open report.pdf
+	open -a Skim -g report.pdf
+	#open report.pdf
 
 %.tex : %.md Makefile
 	pandoc $*.md \

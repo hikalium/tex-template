@@ -4,3 +4,4 @@ out/
 *.aux
 *.log
 *.pdf
+*.dvi
