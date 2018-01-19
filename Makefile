@@ -1,13 +1,11 @@
-.PHONY: %.tex %.dvi	%.tex
 PREAMBLE_FILE=style/preamble.tex
 OUT_DIR = ./out
 
-default:
-	make report.pdf
-	open -a Skim -g report.pdf
-	#open report.pdf
+TARGET=$(addsuffix .pdf, $(basename $(wildcard *.tex) $(wildcard *.md)))
 
-%.tex : %.md Makefile
+default: $(TARGET)
+
+$(OUT_DIR)/%.tex : %.md Makefile
 	pandoc $*.md \
 		-o $(OUT_DIR)/$*.tex
 

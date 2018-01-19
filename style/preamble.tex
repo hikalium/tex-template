@@ -6,6 +6,12 @@
 \usepackage{amsmath}
 \usepackage{lastpage}
 \usepackage[dvipdfmx]{hyperref} %http://www.hnagata.net/archives/142
+
+\usepackage{titlesec}
+\titleformat*{\section}{\Large\ttfamily}
+\titleformat*{\subsection}{\large\ttfamily}
+\titleformat*{\subsubsection}{}
+
 \usepackage{atbegshi}
 \ifnum 42146=\euc"A4A2
 \AtBeginShipoutFirst{\special{pdf:tounicode EUC-UCS2}}
